@@ -165,7 +165,7 @@ func (mx *SenseHatMatrix) display_test() {
 	time.Sleep(time.Millisecond * 100)
 }
 
-// Push expose the data channel
+// Push exposes the data channel to other spaces
 func Push(d *common.MatrixData) (err error) {
 	Matrix.chanData <- *d
 	return nil
