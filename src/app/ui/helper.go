@@ -6,11 +6,10 @@ import (
 	"math/rand"
 
 	"github.com/bus710/matrixd/src/matrixd/app/common"
+	"github.com/bus710/matrixd/src/matrixd/app/matrix"
 )
 
 func (w *GtkWindow) setPoints() {
-	// Store states
-	w.points = make([]common.Point, 64)
 	// Set the default values
 	y_offset := 30.0
 	for i := 0; i < 8; i++ {
@@ -88,6 +87,13 @@ func (w *GtkWindow) setRandom() {
 
 func (w *GtkWindow) setSubmit() {
 	log.Println(w.points)
+	d := common.MatrixData{}
+	for i, p := range w.points {
+		d.R[i] = uint8(p.R * 255)
+		d.G[i] = uint8(p.G * 255)
+		d.B[i] = uint8(p.B * 255)
+	}
+	matrix.Push(&d)
 }
 
 func newRequest(name string, r float64, g float64, b float64) (common.Request, error) {

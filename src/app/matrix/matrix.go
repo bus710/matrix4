@@ -125,12 +125,6 @@ loop:
 	mx.wait.Done()
 }
 
-// Push expose the data channel
-func Push(d *common.MatrixData) (err error) {
-	Matrix.chanData <- *d
-	return nil
-}
-
 func (mx *SenseHatMatrix) display(d common.MatrixData) (err error) {
 	// Map RGB to Raw (linear)
 	j := int(0)
@@ -169,4 +163,10 @@ func (mx *SenseHatMatrix) display_test() {
 	}
 	mx.display(d)
 	time.Sleep(time.Millisecond * 100)
+}
+
+// Push expose the data channel
+func Push(d *common.MatrixData) (err error) {
+	Matrix.chanData <- *d
+	return nil
 }

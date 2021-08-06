@@ -4,12 +4,6 @@ package common
 const WIDTH = 295
 const HEIGHT = 295
 
-// WebSocketMessage - can be used for the websocket response to the clients
-type WebSocketMessage struct {
-	Type string `json:"type"`
-	Data string `json:"data"`
-}
-
 // MatrixData ...
 type MatrixData struct {
 	R [64]uint8 `json:"R"`
@@ -17,7 +11,7 @@ type MatrixData struct {
 	B [64]uint8 `json:"B"`
 }
 
-// Request is used between the gtk components
+// Request is used between the gtk components (i.e. button (or slider) => drawing area)
 type Request struct {
 	CMD string
 	R   float64

@@ -28,36 +28,33 @@ type GtkWindow struct {
 
 func (w *GtkWindow) Init(wait *sync.WaitGroup, windowCloseIndicator chan bool) error {
 	var err error
-
-	//
+	// assign waig group
 	w.wait = wait
-
-	//
+	// Init states
+	w.points = make([]common.Point, 64)
 	w.setPoints()
+	// Init channel
 	w.chanRequest = make(chan common.Request)
 
 	// Initialize GTK without parsing any command line arguments.
 	gtk.Init(nil)
-
 	// Create a new toplevel window, set its title, and connect it to the
 	// "destroy" signal to exit the GTK main loop when it is destroyed.
 	w.win, err = gtk.WindowNew(gtk.WINDOW_TOPLEVEL)
 	if err != nil {
 		return nil
 	}
-
 	w.win.SetTitle("")
 	w.win.Connect("destroy", func() {
 		windowCloseIndicator <- true
 		gtk.MainQuit()
 		w.wait.Done()
 	})
-
+	// Layout body
 	widget, err := w.windowWidget()
 	if err != nil {
 		return nil
 	}
-
 	// Add the label to the window.
 	w.win.Add(widget)
 
