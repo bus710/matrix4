@@ -13,4 +13,4 @@
 
 # Dependency directories (remove the comment below to include it)
 # vendor/
-src/bin/matrix4-x86_64
+src/bin/*
