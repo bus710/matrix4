@@ -66,7 +66,7 @@ The UI looks like the image below and the components have features like these:
 
 <br/>
 
-<img src="assets/screenshot.png" width="640">
+<img src="assets/screenshot.png" width="320">
 
 <br/><br/>
 
