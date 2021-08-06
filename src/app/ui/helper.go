@@ -1,7 +1,6 @@
 package ui
 
 import (
-	"log"
 	"math"
 	"math/rand"
 
@@ -86,7 +85,6 @@ func (w *GtkWindow) setRandom() {
 }
 
 func (w *GtkWindow) setSubmit() {
-	log.Println(w.points)
 	d := common.MatrixData{}
 	for i, p := range w.points {
 		d.R[i] = uint8(p.R * 255)
