@@ -82,5 +82,5 @@ With this simple project, the LEDs on Sense Hat can be easily controlled by the 
 
 ```
 This is just a toy project that cannot be used for safety/commercial tasks.   
-The developer doesn't take any kind of (phsical, mental, and financial) responsibility. 
+The developer doesn't take any kind of (physical, mental, and financial) responsibility. 
 ```
